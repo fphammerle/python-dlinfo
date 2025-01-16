@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         python-version:
-        - '3.8'
         - '3.9'
         - '3.10'
       fail-fast: false
@@ -38,5 +37,7 @@ jobs:
       env:
         PYTHON_VERSION: ${{ matrix.python-version }}
     - run: pipenv graph
-    - run: pipenv run pytest --cov="$(cat *.egg-info/top_level.txt)" --cov-report=term-missing --cov-fail-under=100
+    - run: >-
+        pipenv run pytest --cov="$(cat *.egg-info/top_level.txt)"
+        --cov-report=term-missing --cov-fail-under=100
     - run: pipenv run pylint "$(cat *.egg-info/top_level.txt)" tests/*
