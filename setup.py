@@ -6,12 +6,12 @@ with open("README.rst", "r") as readme:
 setuptools.setup(
     name="dlinfo",
     use_scm_version=True,
-    maintainer='Cloudflight Space',
-    maintainer_email='aerospace@cloudflight.io',
-    description="Python wrapper for libc\'s dlinfo and dyld_find on Mac",
+    maintainer="Fabian Peter Hammerle",
+    maintainer_email="fabian.dlinfo@hammerle.me",
+    description="Python wrapper for libc's dlinfo and dyld_find on Mac",
     long_description=LONG_DESCRIPTION,
     license="MIT",
-    url="https://github.com/cloudflightio/python-dlinfo",
+    url="https://github.com/fphammerle/python-dlinfo",
     packages=setuptools.find_packages(),
     python_requires=">=3.9",  # >=3.6 for f-strings, <3.9 untested
     setup_requires=["setuptools_scm"],

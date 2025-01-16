@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Raise `RuntimeError` instead of `Exception` when libc's `dlinfo` function fails.
+- Update maintainer and repository's URL in package's metadata.
 
 ### Removed
 - Compatibility with `python3.5`, `python3.6`, `python3.7` & `python3.8`
