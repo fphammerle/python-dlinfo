@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Declare compatibility with `python3.11` in package's metadata.
+- Declare compatibility with `python3.11` & `python3.12` in package's metadata.
 
 ### Changed
 - Raise `RuntimeError` instead of `Exception` when libc's `dlinfo` function fails.
