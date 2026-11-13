@@ -1,9 +1,16 @@
 import ctypes
 import os
+import sys
 
 import pytest
 
 from dlinfo import DLInfo
+
+
+pytestmark = pytest.mark.skipif(
+    sys.platform == 'darwin',
+    reason='glibc-specific tests',
+)
 
 
 @pytest.mark.parametrize('lib_name', [
