@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Declare compatibility with `python3.13` in package's metadata.
+- Declare compatibility with `python3.13` & `python3.14` in package's metadata.
 
 ### Removed
 - Compatibility with `python3.9` (reached end-of-life).
