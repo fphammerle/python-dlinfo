@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   in package's metadata.
 
 ### Removed
-- Compatibility with `python3.9` (reached end-of-life).
+- Compatibility with `python3.9` & `python3.10` (reached end-of-life).
 
 ## [2.0.0] - 2025-01-16
 ### Added
