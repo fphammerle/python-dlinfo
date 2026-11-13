@@ -17,7 +17,9 @@ jobs:
       matrix:
         os:
         - ubuntu-24.04
-        - macos-26
+        # macos-26 jobs did not get a runner in 2026-11
+        # (stayed queued until cancelled)
+        - macos-15
         python-version:
         - '3.10'
         - '3.11'
@@ -36,7 +38,10 @@ jobs:
     # > [...]
     # > [...]/coverage/inorout.py:507: CoverageWarning:
     # . Module  was never imported. (module-not-imported)
-    - run: pip install --upgrade pipenv==2023.6.18
+    # pipenv v2023.6.18 imports distutils on macOS, which python3.12 removed
+    # version as in
+    # https://github.com/fphammerle/free-disk/blob/f8850ec14eb721141085510bf96d527c73b5cb34/.github/workflows/python.yml
+    - run: pip install --upgrade pipenv==2025.1.3
     # by default pipenv picks the latest version in PATH
     - run: pipenv install --python "$PYTHON_VERSION" --deploy --dev
       env:
