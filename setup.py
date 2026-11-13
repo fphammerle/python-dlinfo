@@ -12,7 +12,6 @@ setuptools.setup(
     url="https://github.com/fphammerle/python-dlinfo",
     packages=setuptools.find_packages(),
     python_requires=">=3.10",  # >=3.6 for f-strings, <3.10 untested
-    setup_requires=["setuptools_scm"],
     tests_require=["pytest"],
     classifiers=[
         # https://pypi.org/classifiers/
