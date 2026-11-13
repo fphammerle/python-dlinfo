@@ -54,3 +54,24 @@ jobs:
         pipenv run pytest --cov="$(cat *.egg-info/top_level.txt)"
         --cov-report=term-missing --cov-fail-under=100
     - run: pipenv run pylint "$(cat *.egg-info/top_level.txt)" tests/*
+  install:
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.13'}
+    # https://github.com/pypa/build builds in an isolated env
+    # with the build requirements from pyproject.toml
+    - run: pip install build==1.6.1
+    - run: python -m build --wheel
+    # separate env, outside of the source dir,
+    # so the import can't pick up ./dlinfo
+    - run: python -m venv /tmp/install-env
+    - run: '! /tmp/install-env/bin/python -c "import dlinfo"'
+      working-directory: /tmp
+    - run: /tmp/install-env/bin/pip install "$GITHUB_WORKSPACE"/dist/*.whl
+    - run: >-
+        /tmp/install-env/bin/python -c
+        'import ctypes, ctypes.util, dlinfo;
+        print(dlinfo.DLInfo(ctypes.CDLL(ctypes.util.find_library("c"))).path)'
+      working-directory: /tmp
